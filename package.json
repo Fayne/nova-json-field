@@ -6,7 +6,11 @@
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "prod": "npm run production",
-    "production": "mix --production"
+    "production": "mix --production",
+    "workbench:install": "composer run workbench:install",
+    "workbench:build": "composer run workbench:build",
+    "workbench:serve": "composer run workbench:serve",
+    "test": "composer run test"
   },
   "devDependencies": {
     "laravel-nova-devtool": "file:vendor/laravel/nova-devtool",

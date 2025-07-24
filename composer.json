@@ -12,14 +12,27 @@
     },
     "require-dev": {
         "laravel/nova": "^5.0",
-        "laravel/nova-devtool": "^1.7"
+        "laravel/nova-devtool": "^1.7",
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^10.0"
     },
     "repositories": [
-        { "type": "composer", "url": "https://nova.laravel.com" }
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
     ],
     "autoload": {
         "psr-4": {
             "MobileNowGroup\\NovaJsonField\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MobileNowGroup\\NovaJsonField\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "extra": {
@@ -31,6 +44,24 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "workbench:install": "@php vendor/bin/testbench workbench:install",
+        "workbench:build": "@php vendor/bin/testbench workbench:build",
+        "workbench:serve": "@php vendor/bin/testbench serve",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true

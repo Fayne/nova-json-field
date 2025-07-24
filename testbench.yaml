@@ -1,0 +1,11 @@
+workbench:
+  start: '/'
+  install: true
+  welcome: false
+  health: false
+  discovers:
+    - web
+    - commands
+  providers:
+    - MobileNowGroup\NovaJsonField\FieldServiceProvider
+  devtool: true

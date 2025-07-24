@@ -2,9 +2,11 @@
 /.vscode
 /vendor
 /node_modules
+/workbench
+/build
+/.vercel
 composer.phar
 composer.lock
-phpunit.xml
 .phpunit.result.cache
 .DS_Store
 Thumbs.db
