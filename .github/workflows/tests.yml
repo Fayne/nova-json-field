@@ -63,21 +63,8 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Setup Nova authentication
-        run: |
-          composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
-
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction --no-scripts
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Setup webpack config
-        run: cp webpack.mix.js.dist webpack.mix.js
-
-      - name: Run build
-        run: npm run production
 
       - name: Check for build artifacts
         run: |
