@@ -66,6 +66,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Setup webpack config
+        run: cp webpack.mix.js.dist webpack.mix.js
+
       - name: Run build
         run: npm run production
 
