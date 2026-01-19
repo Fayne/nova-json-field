@@ -36,7 +36,7 @@ class Json extends Field
      *
      * @var int|null
      */
-    public $jsonOptions = JSON_PRETTY_PRINT;
+    public $jsonOptions = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
 
     /**
      * Indicates the visual height of the Code editor.
@@ -56,7 +56,8 @@ class Json extends Field
         $value = parent::resolveAttribute($resource, $attribute);
 
         if ($this->json) {
-            return json_encode($value, $this->jsonOptions ?? JSON_PRETTY_PRINT);
+            $options = $this->jsonOptions ?? JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
+            return json_encode($value, $options);
         }
 
         return $value;
@@ -71,9 +72,23 @@ class Json extends Field
     protected function fillAttributeFromRequest(NovaRequest $request, string $requestAttribute, object $model, string $attribute): void
     {
         if ($request->exists($requestAttribute)) {
-            $model->{$attribute} = $this->json
-                ? json_decode($request[$requestAttribute], true)
-                : $request[$requestAttribute];
+            $value = $request[$requestAttribute];
+
+            if ($this->json) {
+                // Decode JSON string to array
+                $decoded = json_decode($value, true);
+                
+                // If decoding fails, keep original value or handle error as needed
+                // If successful, re-encode with desired options to ensure consistent formatting
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    $model->{$attribute} = $decoded;
+                } else {
+                    // Try to handle potential encoding issues or store raw if not valid JSON
+                    $model->{$attribute} = $value;
+                }
+            } else {
+                $model->{$attribute} = $value;
+            }
         }
     }
 
