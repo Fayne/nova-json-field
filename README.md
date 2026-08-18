@@ -113,10 +113,6 @@ composer run workbench:build
 composer run workbench:serve
 ```
 
-## License
-
-This package is open-sourced software licensed under the [MIT license](LICENSE).
-
 ## Contributing
 
 Pull requests and issues are welcome!
@@ -128,3 +124,7 @@ If you encounter any issues while using this package, please:
 1. Check the [Issues](../../issues) page
 2. Create a new Issue describing your problem
 3. Provide detailed error information and reproduction steps
+
+## License
+
+This package is software licensed under the [Proprietary license](LICENSE.md).
