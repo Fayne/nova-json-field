@@ -1,6 +1,6 @@
 <?php
 
-namespace MobileNowGroup\NovaJsonField;
+namespace Fayne\NovaJsonField;
 
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Fields\SupportsDependentFields;
@@ -77,7 +77,7 @@ class Json extends Field
             if ($this->json) {
                 // Decode JSON string to array
                 $decoded = json_decode($value, true);
-                
+
                 // If decoding fails, keep original value or handle error as needed
                 // If successful, re-encode with desired options to ensure consistent formatting
                 if (json_last_error() === JSON_ERROR_NONE) {

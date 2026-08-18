@@ -16,7 +16,7 @@ A JSON field component for Laravel Nova with syntax highlighting and code editin
 Install the package via Composer:
 
 ```bash
-composer require mobilenowgroup/nova-json-field
+composer require fayne/nova-json-field
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ composer require mobilenowgroup/nova-json-field
 Use the JSON field in your Nova resources:
 
 ```php
-use MobileNowGroup\NovaJsonField\Json;
+use Fayne\NovaJsonField\Json;
 
 public function fields(NovaRequest $request)
 {

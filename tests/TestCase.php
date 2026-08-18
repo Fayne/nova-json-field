@@ -1,8 +1,8 @@
 <?php
 
-namespace MobileNowGroup\NovaJsonField\Tests;
+namespace Fayne\NovaJsonField\Tests;
 
-use MobileNowGroup\NovaJsonField\FieldServiceProvider;
+use Fayne\NovaJsonField\FieldServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

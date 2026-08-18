@@ -1,15 +1,15 @@
 {
-    "name": "mobilenowgroup/nova-json-field",
+    "name": "fayne/nova-json-field",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
         "nova"
     ],
-    "license": "MIT",
+    "license": "Proprietary",
     "require": {
         "php": "^8.2",
         "laravel/nova": "^5.0",
-        "illuminate/support": "^10.0|^11.0|^12.0"
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
     },
     "require-dev": {
         "laravel/nova-devtool": "^1.7",
@@ -24,12 +24,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "MobileNowGroup\\NovaJsonField\\": "src/"
+            "Fayne\\NovaJsonField\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MobileNowGroup\\NovaJsonField\\Tests\\": "tests/",
+            "Fayne\\NovaJsonField\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
@@ -38,8 +38,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MobileNowGroup\\NovaJsonField\\FieldServiceProvider"
+                "Fayne\\NovaJsonField\\FieldServiceProvider"
             ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     },
     "config": {

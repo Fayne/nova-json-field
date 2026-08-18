@@ -1,8 +1,8 @@
 <?php
 
-namespace MobileNowGroup\NovaJsonField\Tests;
+namespace Fayne\NovaJsonField\Tests;
 
-use MobileNowGroup\NovaJsonField\Json;
+use Fayne\NovaJsonField\Json;
 
 class JsonFieldTest extends TestCase
 {
@@ -10,7 +10,7 @@ class JsonFieldTest extends TestCase
     public function it_can_create_json_field()
     {
         $field = Json::make('Settings');
-        
+
         $this->assertInstanceOf(Json::class, $field);
         $this->assertEquals('Settings', $field->name);
     }
@@ -19,7 +19,7 @@ class JsonFieldTest extends TestCase
     public function it_can_set_attribute()
     {
         $field = Json::make('Settings', 'settings_data');
-        
+
         $this->assertEquals('settings_data', $field->attribute);
     }
 
@@ -27,7 +27,7 @@ class JsonFieldTest extends TestCase
     public function it_has_correct_component()
     {
         $field = Json::make('Settings');
-        
+
         $this->assertEquals('nova-json-field', $field->component);
     }
 }

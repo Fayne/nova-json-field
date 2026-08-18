@@ -12,5 +12,5 @@ mix
   })
   .vue({ version: 3 })
   .css('resources/css/field.css', 'css')
-  .nova('mobilenowgroup/nova-json-field')
+  .nova('fayne/nova-json-field')
   .version()

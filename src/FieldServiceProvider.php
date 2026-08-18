@@ -1,6 +1,6 @@
 <?php
 
-namespace MobileNowGroup\NovaJsonField;
+namespace Fayne\NovaJsonField;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
